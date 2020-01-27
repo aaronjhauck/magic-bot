@@ -1,6 +1,6 @@
 var list = require("./data.json");
 
-function getTopCard () {
+function getTopCard() {
     var card = list.topcards[Math.floor(Math.random()*list.topcards.length)];
 
     return card;
@@ -42,7 +42,7 @@ function getTopEnchantment() {
     return enchantment;
 }
 
-function PrintStd (string) {
+function PrintStd(string) {
     console.log(string);
 }
 
