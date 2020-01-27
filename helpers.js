@@ -30,8 +30,24 @@ function getTopCreature() {
     return creature;
 }
 
+function getInstantPhase() {
+    var phase = list.instantphases[Math.floor(Math.random()*list.instantphases.length)];
+
+    return phase;
+}
+
+function getTopEnchantment() {
+    var enchantment = list.enchantments[Math.floor(Math.random()*list.enchantments.length)];
+
+    return enchantment;
+}
+
 function PrintStd (string) {
     console.log(string);
 }
 
-module.exports = { getTopCard, getTopInstant, getTopSorcery, getPlayer, getTopCreature, PrintStd };
+module.exports = { 
+    getTopCard, getTopInstant, getTopSorcery, 
+    getPlayer, getTopCreature, getInstantPhase, 
+    getTopEnchantment, PrintStd 
+};
