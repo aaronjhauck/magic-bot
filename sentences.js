@@ -140,7 +140,7 @@ function l() {
 
     var mins = Math.floor(Math.random() * 10);
 
-    top.PrintStd(`${player} spends ${mins} tutoring because he can't decide between ${card} or ${card2}`);
+    top.PrintStd(`${player} spends ${mins} minutes tutoring because he can't decide between ${card} or ${card2}`);
 }
 
 function getSentence() {
