@@ -43,7 +43,7 @@ async function a () {
     var card    = top.getTopCard();
     var player  = top.getPlayer();
 
-    top.PrintStd(`${player} found a way to include ${card} in his ${general} deck.`);
+    return `${player} found a way to include ${card} in his ${general} deck.`;
 }
 
 function b () {
@@ -60,14 +60,14 @@ function b () {
     var phase = top.getInstantPhase();
     var card   = top.getTopSorcery();
 
-    top.PrintStd(`${player} attempts to resolve ${card} at ${player2}'s ${phase}.`);
+    return `${player} attempts to resolve ${card} at ${player2}'s ${phase}.`;
 }
 
 function c() {
     var player = top.getPlayer();
     var card   = top.getTopInstant();
 
-    top.PrintStd(`In his second main phase, ${player} jams ${card}.`);
+    return `In his second main phase, ${player} jams ${card}.`;
 }
 
 function d() {
@@ -76,13 +76,13 @@ function d() {
     var creature    = top.getTopCreature();
     var enchantment = top.getTopEnchantment();
 
-    top.PrintStd(`Moving to combat with ${creature}, ${player} left ${card} up to protect his ${enchantment}.`);
+    return `Moving to combat with ${creature}, ${player} left ${card} up to protect his ${enchantment}.`;
 }
 
 function e() {
     var player = top.getPlayer();
 
-    top.PrintStd(`Hey ${player} - did you read the card?`);
+    return `Hey ${player} - did you read the card?`;
 }
 
 async function f() {
@@ -94,7 +94,7 @@ async function f() {
     var d = await getRandomCard();
     var e = top.getTopCard();
 
-    top.PrintStd(`${player} mulled to a hand of ${a}, ${b}, ${c}, ${d}, and ${e}.`)
+    return `${player} mulled to a hand of ${a}, ${b}, ${c}, ${d}, and ${e}.`;
 }
 
 function g() {
@@ -111,7 +111,7 @@ function g() {
     var card   = top.getTopCard();
     var card2  = top.getTopInstant();
 
-    top.PrintStd(`At a critical juncture, ${player} casts ${card}. ${player2} snap responds with ${card2}.`);
+    return `At a critical juncture, ${player} casts ${card}. ${player2} snap responds with ${card2}.`;
 }
 
 function h() {
@@ -128,7 +128,7 @@ function h() {
     var spell = top.getTopCard();
     var creature = top.getTopCreature();
 
-    top.PrintStd(`Victory is close. With ${spell} in hand, ${player} slams ${creature}. ${player2} has no response.`);
+    return `Victory is close. With ${spell} in hand, ${player} slams ${creature}. ${player2} has no response.`;
 }
 
 function i() {
@@ -136,7 +136,7 @@ function i() {
     var enchantment = top.getTopEnchantment();
     var spell       = top.getTopInstant();
 
-    top.PrintStd(`An overwhelmed ${player} decides ${enchantment} is a threat on the board. He considers burning a ${spell}.`);
+    return `An overwhelmed ${player} decides ${enchantment} is a threat on the board. He considers burning a ${spell}.`;
 }
 
 function j() {
@@ -149,7 +149,7 @@ function k() {
     var player   = top.getPlayer();
     var card = top.getTopCard();
 
-    top.PrintStd(`During a cut, ${player} sighs while noticing his ${card} at the bottom of his deck.`);
+    return `During a cut, ${player} sighs while noticing his ${card} at the bottom of his deck.`;
 }
 
 function l() {
@@ -159,7 +159,7 @@ function l() {
 
     var mins   = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
-    top.PrintStd(`It's a toss up between ${card} and ${card2}. ${player} spends ${mins} minutes tutoring.`);
+    return `It's a toss up between ${card} and ${card2}. ${player} spends ${mins} minutes tutoring.`;
 }
 
 async function m() {
@@ -169,7 +169,7 @@ async function m() {
     var b = await getRandomCard();
     var c = await getRandomCard();
 
-    top.PrintStd(`After activating Top - ${player} puts ${a}, ${b}, and ${c} back in the same order he found them in.`)
+    return `After activating Top - ${player} puts ${a}, ${b}, and ${c} back in the same order he found them in.`;
 }
 
 function n() {
@@ -185,7 +185,7 @@ function n() {
 
     var spell = top.getTopInstant();
 
-    top.PrintStd(`${player} begins to scoop after ${player2}'s crucial ${spell}.`);
+    return `${player} begins to scoop after ${player2}'s crucial ${spell}.`;
 }
 
 /* -- Random Sentence Generator --
@@ -206,7 +206,7 @@ function getSentence() {
 
     var pos = Math.floor(Math.random()*arry_of_functions.length);
 
-    arry_of_functions[pos]();
+    return arry_of_functions[pos]();
 }
 
 //Expose the only function that executes 
