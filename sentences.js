@@ -25,6 +25,13 @@ async function getRandomGeneral() {
 
 async function getRandomCard() {
     var data = await getData(randomCard);
+
+    if (data.set_type == "token") { 
+        do {
+            data = await getData(randomCard);
+        }
+        while(data.set_type == "token")
+    }
     var card = data.name;
 
     return card;
@@ -43,7 +50,7 @@ async function a() {
     var card    = top.getTopCard();
     var player  = top.getPlayer();
 
-    return `${player} found a way to include ${card} in his ${general} deck.`;
+    return `${player} snuck a copy of ${card} into his ${general} deck.`;
 }
 
 function b () {
@@ -57,17 +64,17 @@ function b () {
         while(player == player2)
     }
 
-    var phase = top.getInstantPhase();
-    var card   = top.getTopSorcery();
+    var phase  = top.getInstantPhase();
+    var spell  = top.getTopSorcery();
 
-    return `${player} attempts to resolve ${card} at ${player2}'s ${phase}.`;
+    return `During ${player}'s ${phase}, ${player2} attempts an instant speed ${spell}.`;
 }
 
 function c() {
     var player = top.getPlayer();
-    var card   = top.getTopInstant();
+    var spell  = top.getTopInstant();
 
-    return `In his second main phase, ${player} jams ${card}.`;
+    return `Moving to his second main phase, ${player} tanks and jams ${spell}.`;
 }
 
 function d() {
@@ -76,7 +83,7 @@ function d() {
     var creature    = top.getTopCreature();
     var enchantment = top.getTopEnchantment();
 
-    return `Moving to combat with ${creature}, ${player} left ${card} up to protect his ${enchantment}.`;
+    return `Moving to combat with ${creature}, ${player} made sure to leave ${card} up to protect his ${enchantment}.`;
 }
 
 function e() {
@@ -88,10 +95,10 @@ function e() {
 async function f() {
     var player = top.getPlayer();
 
-    var a = await getRandomCard();
+    var a = top.getTopLands();
     var b = await getRandomCard();
     var c = top.getTopCard();
-    var d = await getRandomCard();
+    var d = top.getTopLands();
     var e = top.getTopCard();
 
     return `${player} mulled to a hand of ${a}, ${b}, ${c}, ${d}, and ${e}.`;
@@ -109,9 +116,9 @@ function g() {
     }
 
     var card   = top.getTopCard();
-    var card2  = top.getTopInstant();
+    var spell  = top.getTopInstant();
 
-    return `At a critical juncture, ${player} casts ${card}. ${player2} snap responds with ${card2}.`;
+    return `At a critical juncture, ${player} attempts to resolve ${card}. ${player2} snap responds with ${spell}.`;
 }
 
 function h() {
@@ -125,10 +132,11 @@ function h() {
         while(player == player2)
     }
 
-    var spell = top.getTopCard();
+    var card     = top.getTopCard();
     var creature = top.getTopCreature();
+    var reaction = top.getReaction();
 
-    return `Victory is close. With ${spell} in hand, ${player} slams ${creature}. ${player2} has no response.`;
+    return `Victory is close. With ${card} in hand, ${player} slams ${creature}. ${player2} ${reaction}.`;
 }
 
 function i() {
@@ -146,30 +154,30 @@ function j() {
 }
 
 function k() { 
-    var player   = top.getPlayer();
-    var card = top.getTopCard();
+    var player = top.getPlayer();
+    var card   = top.getTopCard();
 
     return `During a cut, ${player} sighs while noticing his ${card} at the bottom of his deck.`;
 }
 
 function l() {
-    var player = top.getPlayer();
-    var card   = top.getTopSorcery();
-    var card2  = top.getTopEnchantment();
+    var player      = top.getPlayer();
+    var spell       = top.getTopSorcery();
+    var enchantment = top.getTopEnchantment();
 
     var mins   = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
-    return `It's a toss up between ${card} and ${card2}. ${player} spends ${mins} minutes tutoring.`;
+    return `It's a toss up between ${spell} and ${enchantment}, so ${player} spends ${mins} minutes tutoring.`;
 }
 
 async function m() {
     var player = top.getPlayer();
 
     var a = await getRandomCard();
-    var b = await getRandomCard();
+    var b = top.getTopLands();
     var c = await getRandomCard();
 
-    return `After activating Top - ${player} puts ${a}, ${b}, and ${c} back in the same order he found them in.`;
+    return `After activating Top - ${player} puts ${a}, ${b}, and ${c} back in the exact order he found them in.`;
 }
 
 function n() {
@@ -183,9 +191,9 @@ function n() {
         while(player == player2)
     }
 
-    var spell = top.getTopInstant();
+    var spell = top.getTopSorcery();
 
-    return `${player} begins to scoop after ${player2}'s crucial ${spell}.`;
+    return `${player2}'s crucial, game winning ${spell} is put on the stack. ${player} is already shuffling for the next game`;
 }
 
 /* -- Random Sentence Generator --
