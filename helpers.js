@@ -1,46 +1,14 @@
 var list = require("./data.json");
 
-function getTopCard() {
-    var card = list.topcards[Math.floor(Math.random()*list.topcards.length)];
+function getPlayer()         { return shuffle(list.players);      }
+function getTopCard()        { return shuffle(list.topcards);     }
+function getTopSorcery()     { return shuffle(list.soceries);     }
+function getTopInstant()     { return shuffle(list.instants);     }
+function getTopCreature()    { return shuffle(list.creatures);    } 
+function getInstantPhase()   { return shuffle(list.instantphases);}
+function getTopEnchantment() { return shuffle(list.enchantments); }
 
-    return card;
-}
-
-function getTopSorcery() {
-    var spell = list.soceries[Math.floor(Math.random()*list.soceries.length)];
-
-    return spell;
-}
-
-function getTopInstant() {
-    var spell = list.instants[Math.floor(Math.random()*list.instants.length)];
-
-    return spell;
-}
-
-function getPlayer() {
-    var player = list.players[Math.floor(Math.random()*list.players.length)];
-
-    return player;
-}
-
-function getTopCreature() {
-    var creature = list.creatures[Math.floor(Math.random()*list.creatures.length)];
-
-    return creature;
-}
-
-function getInstantPhase() {
-    var phase = list.instantphases[Math.floor(Math.random()*list.instantphases.length)];
-
-    return phase;
-}
-
-function getTopEnchantment() {
-    var enchantment = list.enchantments[Math.floor(Math.random()*list.enchantments.length)];
-
-    return enchantment;
-}
+function shuffle(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
 
 function PrintStd(string) {
     console.log(string);

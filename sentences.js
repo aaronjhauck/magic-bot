@@ -38,7 +38,7 @@ a new random variable every time the function is called. To add a
 new sentence, define the function as a letter and add  it to the 
 getSentence() method at the bottom of this file
 */
-async function a () {
+async function a() {
     var general = await getRandomGeneral();
     var card    = top.getTopCard();
     var player  = top.getPlayer();
@@ -142,7 +142,7 @@ function i() {
 function j() {
     var player = top.getPlayer();
 
-    top.PrintStd(`${player} declines to pay (2) for Smothering Tithe.`);
+    return `${player} declines to pay (2) for Smothering Tithe.`;
 }
 
 function k() { 
