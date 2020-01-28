@@ -196,6 +196,82 @@ function n() {
     return `${player2}'s crucial, game winning ${spell} is put on the stack. ${player} is already shuffling for the next game`;
 }
 
+function o() {
+    var player = top.getPlayer();
+    var card   = top.getTopCard();
+
+    return `It's clear to everyone at the table that ${player} has the ${card}.`;
+}
+
+function p() {
+    var player   = top.getPlayer();
+    var card     = top.getTopCard();
+    var creature = top.getTopCreature();
+
+    return `${player}'s hands shook uncontrollably as he held his two of his combo pieces - ${card} and ${creature}.`;
+}
+
+function q() {
+    var player  = top.getPlayer();
+    var sorcery = top.getTopSorcery();
+    var instant = top.getTopInstant();
+
+    return `Carefull not to tap out, ${player} casts ${sorcery} with ${instant} backup.`;
+}
+
+function r() {
+    var player  = top.getPlayer();
+    var player2 = top.getPlayer();
+
+    if (player == player2) { 
+        do {
+            player2 = top.getPlayer();
+        }
+        while(player == player2)
+    }
+
+    var instant = top.getTopInstant();
+
+    return `After looking at the top card of ${player}'s library, ${player2} decided to leave ${instant} right where it was`;
+}
+
+function s() {
+    var player  = top.getPlayer();    
+    var player2 = top.getPlayer();
+    var player3 = top.getPlayer();
+    var player4 = top.getPlayer();
+
+    if (player == player2) { 
+        do {
+            player2 = top.getPlayer();
+        }
+        while(player == player2)
+    }
+
+    var instant  = top.getTopInstant();
+    var instant2 = top.getTopInstant();
+    var instant3 = top.getTopInstant();
+    var sorcery  = top.getTopSorcery();
+
+    return `The stack is ${player}'s ${instant} and ${player2}'s ${instant2} repsonding to ${player3}'s ${sorcery}. ${player4} clutches his ${instant3}, wondering if now is the time.`
+}
+
+function t() {
+    var player  = top.getPlayer();
+    var player2 = top.getPlayer();
+
+    if (player == player2) { 
+        do {
+            player2 = top.getPlayer();
+        }
+        while(player == player2)
+    }
+
+    var creature = top.getTopCreature();
+    var card     = top.getTopCard();
+
+    return `${player} nearly punted the game for failing to read the text on ${player2}'s ${creature}. ${card} should help him stabilize.`;
+}
 /* -- Random Sentence Generator --
 We want to load our unique sentence functions 
 into an array and then select an index and random
@@ -209,7 +285,9 @@ function getSentence() {
         d, e, f,
         g, h, i,
         j, k, l,
-        m, n
+        m, n, o,
+        p, q, r,
+        s,t
     ];
 
     var pos = Math.floor(Math.random()*arry_of_functions.length);
