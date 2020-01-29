@@ -5,8 +5,8 @@ const twit    = require("twit")
     , sent    = require("./sentences");
 
 
-// function tweet() {
-//   var sentence = sent.getSentence();
+// async function tweet() {
+//   var sentence = await sent.getSentence();
 
 //   Twitter.post('statuses/update', { status: sentence }, function(err, data, response) {
 //     console.log(data)

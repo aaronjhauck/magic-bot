@@ -3,9 +3,7 @@ const fetch   = require("node-fetch")
 
 /*
 -- Scryfall Functions --
-The following functions utilize the scryfall api.
-Most scryfall api calls require some kind of id from
-the caller to fetch data. We are just using the endpoints that
+We are just using the endpoints that
 require no input from the caller.
 */
 async function getData(uri) {
@@ -42,7 +40,7 @@ These are simply to make sentences.js
 look a little cleaner and less noisy
 */
 async function getCardArray(size) {
-    let data   = [];
+    let data = [];
 
     return await loadAsync(data, size, getRandomCard);
 }
@@ -72,6 +70,10 @@ function getSorceryArray(size) {
     return load(data, size, helpers.getTopSorcery);
 }
 
+/*
+-- Array Builders --
+Standard and async array builders
+*/
 function load(array, size, funct) {
     for(let i = 0; i < size; i++){
         array.push(funct());
