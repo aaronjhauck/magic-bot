@@ -24,10 +24,8 @@ async function getRandomCard() {
     const data = await getData(randomCard);
 
     if (data.set_type == "token") { 
-        do {
-            data = await getData(randomCard);
-        }
-        while(data.set_type == "token")
+        do    { data = await getData(randomCard); }
+        while (data.set_type == "token")
     }
     const card = data.name;
 
@@ -39,37 +37,38 @@ async function getRandomCard() {
 These are simply to make sentences.js
 look a little cleaner and less noisy
 */
-async function getCardArray(size) { return await loadAsync(new Array(size), getRandomCard);  }
-function getPlayerArray(size)     { return load(new Array(size), helper.getPlayer);         }
-function getInstantArray(size)    { return load(new Array(size), helper.getTopInstant);     }
-function getSorceryArray(size)    { return load(new Array(size), helper.getTopSorcery);     }
-function getTopCardArray(size)    { return load(new Array(size), helper.getTopCard);        }
-function getCreatureArray(size)   { return load(new Array(size), helper.getTopCreature);    }
-function getEnchantmentArray(size){ return load(new Array(size), helper.getTopEnchantment); }
-function getLandArray(size)       { return load(new Array(size), helper.getTopLands);       }
+async function getCardArray(size) { return await loadAsync(size, getRandomCard); }
+function getPlayerArray(size)     { return load(size, helper.getPlayer);         }
+function getInstantArray(size)    { return load(size, helper.getTopInstant);     }
+function getSorceryArray(size)    { return load(size, helper.getTopSorcery);     }
+function getTopCardArray(size)    { return load(size, helper.getTopCard);        }
+function getCreatureArray(size)   { return load(size, helper.getTopCreature);    }
+function getEnchantmentArray(size){ return load(size, helper.getTopEnchantment); }
+function getLandArray(size)       { return load(size, helper.getTopLands);       }
 
 /*
 -- Array Builders --
 Standard and async array builders
 */
-function load(array, funct) {
-    let len = array.length;
+function load(size, funct) {
+    let array = new Array(size);
+    let len   = array.length;
 
     for(let i = 0; i < len; i++){
-        let ap = funct();
-
-        if(array.includes(ap)){
-            do {
-                ap = funct();
-            } while (array.includes(ap))
+        let item = funct();
+        if(array.includes(item)){
+            do    { item = funct(); } 
+            while (array.includes(item))
         }
-        array[i] = ap;
+        array[i] = item;
     }
     return array;
 }
 
-async function loadAsync(array, funct) {
+async function loadAsync(size, funct) {
+    let array = new Array(size);
     let len = array.length;
+
     for(let i = 0; i < len; i++){
         array[i] = await funct();
     }

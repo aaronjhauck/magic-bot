@@ -205,7 +205,7 @@ function y() {
     let spell    = helper.getTopEnchantment();
     let creature = helper.getTopCreature();
 
-    return `The playgroup pitched in and got ${player} a copy of ${spell}. Should pair well with his ${creature}.`;
+    return `The playgroup pitched in and got ${player} a copy of ${spell} - which should pair well with his ${creature}.`;
 }
 
 function z() {
