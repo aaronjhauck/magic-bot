@@ -37,5 +37,6 @@ function PrintStd(string) {
 module.exports = { 
     getTopCard, getTopInstant, getTopSorcery, 
     getPlayer, getTopCreature, getInstantPhase, 
-    getTopEnchantment, getTopLands, getReaction, PrintStd 
+    getTopEnchantment, getTopLands, getReaction, arrayShuffle,
+    indexShuffle
 };

@@ -166,6 +166,54 @@ function t() {
 
     return `${players[0]} nearly punted the game for failing to read the text on ${players[1]}'s ${creature}. ${card} should help him stabilize.`;
 }
+
+function u() {
+    let players      = funct.getPlayerArray(2);
+    let enchantments = funct.getEnchantmentArray(2);
+    let creature     = helper.getTopCreature();
+
+    return `${players[0]}'s board is ${enchantments[0]} and ${creature}. ${players[1]} is holding a copy of ${enchantments[1]}. We are at a standstill.`
+}
+
+function v() {
+    let players     = funct.getPlayerArray(2);
+    let enchantment = helper.getTopEnchantment();
+    let spell       = helper.getTopInstant();
+
+    return `${players[0]} notices ${players[1]} missed the trigger on his ${enchantment}. A copy of ${spell} will be huge later.`;
+}
+
+function w() {
+    let spell   = helper.getTopInstant();
+    let players = funct.getPlayerArray(2);
+    let lands   = funct.getLandArray(2);
+    let card    = helper.getTopCreature();
+
+    return `${spell} is put on to the stack. ${players[0]} asks ${players[1]} if he has a response. ${players[1]}'s hand is ${lands[0]}, ${card}, and ${lands[1]}.`;
+}
+
+async function x() {
+    let players = funct.getPlayerArray(2);
+    let general = await funct.getRandomGeneral();
+    let card    = helper.getTopSorcery();
+
+    return `${players[0]} is excited about his brand new ${general} deck. He'll be less so when ${players[1]} shows him ${card}.`;
+}
+
+function y() {
+    let player   = helper.getPlayer();
+    let spell    = helper.getTopEnchantment();
+    let creature = helper.getTopCreature();
+
+    return `The playgroup pitched in and got ${player} a copy of ${spell}. Should pair well with his ${creature}.`;
+}
+
+function z() {
+    let players = funct.getPlayerArray(3);
+    let card    = helper.getTopSorcery();
+
+    return `${players[0]} and ${players[1]} complain about causual gameplay as ${players[2]} untaps and jams ${card}.`;
+}
 /* -- Random Sentence Generator --
 We want to load our unique sentence functions 
 into an array and then select an index and random
@@ -174,19 +222,20 @@ defining a new sentence, make sure it's included
 in the array below
 */
 function getSentence() {
-    let arry_of_functions = [
+    let functArray = [
         a, b, c,
         d, e, f,
         g, h, i,
         j, k, l,
         m, n, o,
         p, q, r,
-        s, t
+        s, t, u,
+        v, w, x,
+        y, z
     ];
 
-    let pos = Math.floor(Math.random()*arry_of_functions.length);
-
-    return arry_of_functions[pos]();
+    functArray = helper.arrayShuffle(functArray);
+    return helper.indexShuffle(functArray)();
 }
 
 //Expose the only function that executes 
