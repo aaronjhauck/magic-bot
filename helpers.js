@@ -1,4 +1,4 @@
-var list = require("./data.json");
+const list = require("./data.json");
 
 function getPlayer()         { return shuffle(list.players);      }
 function getTopCard()        { return shuffle(list.topcards);     }

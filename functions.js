@@ -1,5 +1,5 @@
-var fetch   = require("node-fetch");
-var helpers = require("./helpers");
+const fetch   = require("node-fetch")
+    , helpers = require("./helpers");
 
 /*
 -- Scryfall Functions --
@@ -10,21 +10,20 @@ require no input from the caller.
 */
 async function getData(uri) {
     const response = await fetch(uri);
-
     return response.json();
 }
 
 async function getRandomGeneral() {
-    var randomGeneral = "https://api.scryfall.com/cards/random?q=is%3Acommander";
-    var data    = await getData(randomGeneral);
-    var general = data.name;
+    const randomGeneral = "https://api.scryfall.com/cards/random?q=is%3Acommander";
+    const data    = await getData(randomGeneral);
+    const general = data.name;
 
     return general;
 }
 
 async function getRandomCard() {
-    var randomCard = "https://api.scryfall.com/cards/random";
-    var data = await getData(randomCard);
+    const randomCard = "https://api.scryfall.com/cards/random";
+    const data = await getData(randomCard);
 
     if (data.set_type == "token") { 
         do {
@@ -32,7 +31,7 @@ async function getRandomCard() {
         }
         while(data.set_type == "token")
     }
-    var card = data.name;
+    const card = data.name;
 
     return card;
 }
@@ -43,54 +42,48 @@ These are simply to make sentences.js
 look a little cleaner and less noisy
 */
 async function getCardArray(size) {
-    var data   = [];
-    var length = size;
+    let data   = [];
 
-    for(var i = 0; i < length; i++){
-        data.push(await getRandomCard());
-    }
-
-    return data;
+    return await loadAsync(data, size, getRandomCard);
 }
 
 function getPlayerArray(size) {
-    var data = [];
-    var length = size;
-
-    for(var i = 0; i < length; i++){
-        data.push(helpers.getPlayer());
-    }
+    let data = [];
+    data = load(data, size, helpers.getPlayer);
 
     if (data[0] == data[1]) { 
         do {
-            data[1] = helper.getPlayer();
+            data[1] = helpers.getPlayer();
         }
         while(data[0] == data[1])
     }
-
     return data;
 }
 
 function getInstantArray(size) {
-    var data = [];
-    var length = size;
-
-    for(var i = 0; i < length; i++){
-        data.push(helpers.getTopInstant());
-    }
-
-    return data;
+    let data = [];
+    
+    return load(data, size, helpers.getTopInstant);
 }
 
 function getSorceryArray(size) {
-    var data = [];
-    var length = size;
+    let data = [];
+    
+    return load(data, size, helpers.getTopSorcery);
+}
 
-    for(var i = 0; i < length; i++){
-        data.push(helpers.getTopSorcery());
+function load(array, size, funct) {
+    for(let i = 0; i < size; i++){
+        array.push(funct());
     }
+    return array;
+}
 
-    return data;
+async function loadAsync(array, size, funct) {
+    for(let i = 0; i < size; i++){
+        array.push(await funct());
+    }
+    return array;
 }
 
 module.exports = { 

@@ -1,8 +1,9 @@
-var twit    = require("twit");
-var sched   = require("node-schedule");
-var sent    = require("./sentences");
-var keys    = require("./keys");
-var Twitter = new twit(keys);
+const twit    = require("twit")
+    , keys    = require("./keys")
+    , Twitter = new twit(keys)
+    , sched   = require("node-schedule")
+    , sent    = require("./sentences");
+
 
 // function tweet() {
 //   var sentence = sent.getSentence();
