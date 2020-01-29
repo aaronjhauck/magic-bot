@@ -19,51 +19,48 @@ async function a() {
 function b() {
     let players = funct.getPlayerArray(2);
     let phase   = helper.getInstantPhase();
-    let spell   = helper.getTopSorcery();
+    let sorcery = helper.getTopSorcery();
 
-    return `During ${players[0]}'s ${phase}, ${players[1]} attempts an instant speed ${spell}.`;
+    return `During ${players[0]}'s ${phase}, ${players[1]} attempts an instant speed ${sorcery}.`;
 }
 
 function c() {
-    let player = helper.getPlayer();
-    let spell  = helper.getTopInstant();
+    let player  = helper.getPlayer();
+    let instant = helper.getTopInstant();
 
-    return `Moving to his second main phase, ${player} tanks and jams ${spell}.`;
+    return `Moving to his second main phase, ${player} tanks and jams ${instant}.`;
 }
 
 function d() {
     let player      = helper.getPlayer();
-    let card        = helper.getTopInstant();
+    let instant     = helper.getTopInstant();
     let creature    = helper.getTopCreature();
     let enchantment = helper.getTopEnchantment();
 
-    return `Moving to combat with ${creature}, ${player} made sure to leave ${card} up to protect his ${enchantment}.`;
+    return `Moving to combat with ${creature}, ${player} made sure to leave ${instant} up to protect his ${enchantment}.`;
 }
 
 function e() {
     let player = helper.getPlayer();
 
-    return `Hey ${player} - did you read the card?`;
+    return `I'm sorry ${player}, did you read the card?`;
 }
 
 async function f() {
     let player = helper.getPlayer();
+    let card   = await funct.getCardArray(1);
+    let lands  = funct.getLandArray(2);
+    let cards  = funct.getTopCardArray(2);
 
-    let a = helper.getTopLands();
-    let b = await funct.getCardArray(1);
-    let c = helper.getTopCard();
-    let d = helper.getTopLands();
-    let e = helper.getTopCard();
-
-    return `${player} mulled to a hand of ${a}, ${b}, ${c}, ${d}, and ${e}.`;
+    return `${player} mulled to a hand of ${lands[0]}, ${card[0]}, ${cards[0]}, ${lands[1]}, and ${cards[1]}.`;
 }
 
 function g() {
     let players = funct.getPlayerArray(2);
     let card    = helper.getTopCard();
-    let spell   = helper.getTopInstant();
+    let instant = helper.getTopInstant();
 
-    return `At a critical juncture, ${players[0]} attempts to resolve ${card}. ${players[1]} snap responds with ${spell}.`;
+    return `At a critical juncture, ${players[0]} attempts to resolve ${card}. ${players[1]} snap responds with ${instant}.`;
 }
 
 function h() {
@@ -78,15 +75,18 @@ function h() {
 function i() {
     let player      = helper.getPlayer();
     let enchantment = helper.getTopEnchantment();
-    let spell       = helper.getTopInstant();
+    let insant      = helper.getTopInstant();
 
-    return `An overwhelmed ${player} decides ${enchantment} is a threat on the board. He considers burning a ${spell}.`;
+    return `An overwhelmed ${player} decides ${enchantment} is a threat on the board. He considers burning a ${insant}.`;
 }
 
 function j() {
     let player = helper.getPlayer();
 
-    return `${player} declines to pay (2) for Smothering Tithe.`;
+    let decisions = ["decides", "declines", "forgets", "wants", "encourages others"];
+    let decision  = decisions[Math.floor(Math.random()*decisions.length)];
+
+    return `${player} ${decision} to pay for Smothering Tithe.`;
 }
 
 function k() { 
@@ -98,12 +98,12 @@ function k() {
 
 function l() {
     let player      = helper.getPlayer();
-    let spell       = helper.getTopSorcery();
+    let sorcery     = helper.getTopSorcery();
     let enchantment = helper.getTopEnchantment();
 
     let mins   = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
-    return `It's a toss up between ${spell} and ${enchantment}, so ${player} spends ${mins} minutes tutoring.`;
+    return `It's a toss up between ${sorcery} and ${enchantment}, so ${player} spends ${mins} minutes tutoring.`;
 }
 
 async function m() {
@@ -116,9 +116,9 @@ async function m() {
 
 function n() {
     let players = funct.getPlayerArray(2);
-    let spell = helper.getTopSorcery();
+    let sorcery = helper.getTopSorcery();
 
-    return `${players[0]}'s crucial, game winning ${spell} is put on the stack. ${players[1]} is already shuffling for the next game`;
+    return `${players[0]}'s crucial, game winning ${sorcery} is put on the stack. ${players[1]} is already shuffling for the next game`;
 }
 
 function o() {
@@ -178,41 +178,41 @@ function u() {
 function v() {
     let players     = funct.getPlayerArray(2);
     let enchantment = helper.getTopEnchantment();
-    let spell       = helper.getTopInstant();
+    let insant      = helper.getTopInstant();
 
-    return `${players[0]} notices ${players[1]} missed the trigger on his ${enchantment}. A copy of ${spell} will be huge later.`;
+    return `${players[0]} notices ${players[1]} missed the trigger on his ${enchantment}. A copy of ${insant} will be huge later.`;
 }
 
 function w() {
-    let spell   = helper.getTopInstant();
+    let insant  = helper.getTopInstant();
     let players = funct.getPlayerArray(2);
     let lands   = funct.getLandArray(2);
     let card    = helper.getTopCreature();
 
-    return `${spell} is put on to the stack. ${players[0]} asks ${players[1]} if he has a response. ${players[1]}'s hand is ${lands[0]}, ${card}, and ${lands[1]}.`;
+    return `${insant} is put on to the stack. ${players[0]} asks ${players[1]} if he has a response. ${players[1]}'s hand is ${lands[0]}, ${card}, and ${lands[1]}.`;
 }
 
 async function x() {
     let players = funct.getPlayerArray(2);
     let general = await funct.getRandomGeneral();
-    let card    = helper.getTopSorcery();
+    let sorcery = helper.getTopSorcery();
 
-    return `${players[0]} is excited about his brand new ${general} deck. He'll be less so when ${players[1]} shows him ${card}.`;
+    return `${players[0]} is excited about his brand new ${general} deck. He'll be less so when ${players[1]} shows him ${sorcery}.`;
 }
 
 function y() {
-    let player   = helper.getPlayer();
-    let spell    = helper.getTopEnchantment();
-    let creature = helper.getTopCreature();
+    let player      = helper.getPlayer();
+    let enchantment = helper.getTopEnchantment();
+    let creature    = helper.getTopCreature();
 
-    return `The playgroup pitched in and got ${player} a copy of ${spell} - which should pair well with his ${creature}.`;
+    return `The playgroup pitched in and got ${player} a copy of ${enchantment} - which should pair well with his ${creature}.`;
 }
 
 function z() {
     let players = funct.getPlayerArray(3);
-    let card    = helper.getTopSorcery();
+    let sorcery = helper.getTopSorcery();
 
-    return `${players[0]} and ${players[1]} complain about causual gameplay as ${players[2]} untaps and jams ${card}.`;
+    return `${players[0]} and ${players[1]} complain about causual gameplay as ${players[2]} untaps and jams ${sorcery}.`;
 }
 /* -- Random Sentence Generator --
 We want to load our unique sentence functions 
@@ -223,15 +223,16 @@ in the array below
 */
 function getSentence() {
     let functArray = [
-        a, b, c,
-        d, e, f,
-        g, h, i,
-        j, k, l,
-        m, n, o,
-        p, q, r,
-        s, t, u,
-        v, w, x,
-        y, z
+        // a, b, c,
+        // d, e, f,
+        // g, h, i,
+        // j, k, l,
+        // m, n, o,
+        // p, q, r,
+        // s, t, u,
+        // v, w, x,
+        // y, z
+        j
     ];
 
     functArray = helper.arrayShuffle(functArray);
