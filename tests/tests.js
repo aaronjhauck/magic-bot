@@ -1,16 +1,4 @@
-const sent = require("../lib/sentences");
-
-let asyncArray = [];
-let nosyncArray = [];
-
-sent.functArray.forEach( e => {
-    if(e.constructor.name == "AsyncFunction") {
-        asyncArray.push(e);
-    }
-    else {
-        nosyncArray.push(e);
-    }
-});
+const sent = require("./lib/sentences.js");
 
 async function testFunction(funct) {
     let sentence = "";
@@ -23,13 +11,8 @@ async function testFunction(funct) {
     }
 }
 
-nosyncArray.forEach(async (e) => {
+sent.functArray.forEach(async (e) => {
     echo(await testFunction(e));
 });
-
-asyncArray.forEach(async e => {
-    echo(await testFunction(e));
-});
-
 
 function echo(string) { console.log(string); }
