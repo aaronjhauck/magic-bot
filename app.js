@@ -1,8 +1,8 @@
 const twit    = require("twit")
-    , keys    = require("./keys")
+    , keys    = require("./resource/keys")
     , Twitter = new twit(keys)
     , sched   = require("node-schedule")
-    , sent    = require("./sentences");
+    , sent    = require("./lib/sentences");
 
 async function tweet() {
 	var sentence = await sent.getSentence();

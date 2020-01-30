@@ -1,4 +1,4 @@
-const sent = require("./sentences");
+const sent = require("../lib/sentences");
 
 let asyncArray = [];
 let nosyncArray = [];
