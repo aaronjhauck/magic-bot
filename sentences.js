@@ -209,13 +209,20 @@ function z() {
 
     return `${players[0]} and ${players[1]} complain about causual gameplay as ${players[2]} untaps and jams ${sorcery}.`;
 }
+
+function aa() {
+	let players = funct.getPlayerArray(2);
+
+	return `${players[0]} scrys a handful of cards during ${players[1]}'s turn and decides to scoop it up`;
+}
 /**
  * Sentence generator
  */
 function getSentence() {
     let functArray = [
         a, b, c, d, e, f, g, h, i, j, k, l, m, 
-        n, o, p, q, r, s, t, u, v, w, x, y, z
+        n, o, p, q, r, s, t, u, v, w, x, y, z,
+        aa
     ];
     functArray = helper.arrayShuffle(functArray);
 
