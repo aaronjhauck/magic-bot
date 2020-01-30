@@ -1,11 +1,11 @@
 const fetch   = require("node-fetch")
     , helper = require("./helpers");
 
-/*
--- Scryfall Functions --
-We are just using the endpoints that
-require no input from the caller.
-*/
+/**
+ * Fetch client
+ * @param {uri} uri 
+ * @returns {json}
+ */
 async function getData(uri) {
     const response = await fetch(uri);
     return response.json();
@@ -32,12 +32,18 @@ async function getRandomCard() {
     return card;
 }
 
-/*
--- Helper Functions --
-These are simply to make sentences.js
-look a little cleaner and less noisy
-*/
+/**
+ * Async Functions
+ * @param {int} size 
+ * @return {array}
+ */
 async function getCardArray(size) { return await loadAsync(size, getRandomCard); }
+
+/**
+ * Non Async Functions
+ * @param {int} size 
+ * @return {array}
+ */
 function getPlayerArray(size)     { return load(size, helper.getPlayer);         }
 function getInstantArray(size)    { return load(size, helper.getTopInstant);     }
 function getSorceryArray(size)    { return load(size, helper.getTopSorcery);     }
@@ -46,10 +52,12 @@ function getCreatureArray(size)   { return load(size, helper.getTopCreature);   
 function getEnchantmentArray(size){ return load(size, helper.getTopEnchantment); }
 function getLandArray(size)       { return load(size, helper.getTopLands);       }
 
-/*
--- Array Builders --
-Standard and async array builders
-*/
+/**
+ * Array builders
+ * @param {int} size 
+ * @param {function} funct 
+ * @returns {array}
+ */
 function load(size, funct) {
     let array = new Array(size);
     let len   = array.length;

@@ -1,13 +1,8 @@
 const helper = require("./helpers")
     , funct  = require("./functions");
-/*
--- Sentence Functions --
-There is probably a much better way of doing this, but 
-for now - this implementation is fine. We want to generate 
-a new random variable every time the function is called. To add a 
-new sentence, define the function as a letter and add  it to the 
-getSentence() method at the bottom of this file
-*/
+/**
+ * Sentence functions
+ */
 async function a() {
     let general = await funct.getRandomGeneral();
     let card    = helper.getTopCard();
@@ -214,27 +209,16 @@ function z() {
 
     return `${players[0]} and ${players[1]} complain about causual gameplay as ${players[2]} untaps and jams ${sorcery}.`;
 }
-/* -- Random Sentence Generator --
-We want to load our unique sentence functions 
-into an array and then select an index and random
-and fill the mad-lib variables at run time. When
-defining a new sentence, make sure it's included 
-in the array below
-*/
+/**
+ * Sentence generator
+ */
 function getSentence() {
     let functArray = [
-        a, b, c,
-        d, e, f,
-        g, h, i,
-        j, k, l,
-        m, n, o,
-        p, q, r,
-        s, t, u,
-        v, w, x,
-        y, z
+        a, b, c, d, e, f, g, h, i, j, k, l, m, 
+        n, o, p, q, r, s, t, u, v, w, x, y, z
     ];
-
     functArray = helper.arrayShuffle(functArray);
+
     return helper.indexShuffle(functArray)();
 }
 

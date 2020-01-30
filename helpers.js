@@ -1,5 +1,8 @@
 const list = require("./data.json");
 
+/**
+ * Get random value
+ */
 function getPlayer()         { return indexShuffle(list.players);      }
 function getTopCard()        { return indexShuffle(list.topcards);     }
 function getReaction()       { return indexShuffle(list.reactions);    }
@@ -10,11 +13,21 @@ function getTopCreature()    { return indexShuffle(list.creatures);    }
 function getInstantPhase()   { return indexShuffle(list.instantphases);}
 function getTopEnchantment() { return indexShuffle(list.enchantments); }
 
+/**
+ * Get random index from array
+ * @param {array} array 
+ * @returns {shuffledIndex}
+ */
 function indexShuffle(array) { 
     array = arrayShuffle(array);
     return array[Math.floor(Math.random()*array.length)]; 
 }
 
+/**
+ * 
+ * @param {array} array 
+ * @returns {shuffledArray}
+ */
 function arrayShuffle(array) {
     let counter = array.length;
 
@@ -30,6 +43,10 @@ function arrayShuffle(array) {
     return array;
 }
 
+/**
+ * Helper aliasing console.log
+ * @param {string} string 
+ */
 function PrintStd(string) {
     console.log(string);
 }
