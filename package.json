@@ -4,16 +4,13 @@
   "description": "A stupid magic bot for me and my friends",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Just a test\" && exit 1"
   },
   "author": "Aaron Hauck",
   "license": "ISC",
   "dependencies": {
-    "fetch": "^1.1.0",
     "node-fetch": "^2.6.0",
     "node-schedule": "^1.3.2",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
     "twit": "^2.2.11"
   }
 }

@@ -12,6 +12,4 @@ async function tweet() {
 	});
 }
 
-// var job = sched.scheduleJob('0 0 */8 * *', tweet);
-
-tweet();
+ var job = sched.scheduleJob('0 */6 * * *', tweet);
