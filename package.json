@@ -4,7 +4,8 @@
   "description": "A stupid magic bot for me and my friends",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Just a test\" && exit 1"
+    "start": "node app.js",
+    "test": "node tests/local.js"
   },
   "author": "Aaron Hauck",
   "license": "ISC",
