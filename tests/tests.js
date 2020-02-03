@@ -1,4 +1,4 @@
-const sent = require("./lib/sentences.js");
+const sent = require("../lib/sentences");
 
 async function testFunction(funct) {
     let sentence = "";
