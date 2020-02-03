@@ -1,19 +1,5 @@
 const sent = require("../lib/sentences");
 const funct = require("../lib/functions");
-// async function testFunction(funct) {
-//     let sentence = "";
-
-//     if(funct.constructor.name == "AsyncFunction") {
-//         sentence = await funct();
-//         return sentence;    
-//     } else {
-//         return funct();
-//     }
-// }
-
-// sent.functArray.forEach(async (e) => {
-//     echo(await testFunction(e));
-// });
 
 let sync = [];
 let async = [];
@@ -24,26 +10,29 @@ sent.functArray.forEach( e => {
     else { sync.push(e); }
 });
 
-let map = {};
-
-async function loadHash() {
+let map  = {};
+let amap = {};
+let a = {};
+function loadHash() {
     sync.forEach(f => {
-        let arr = funct.load(5, f);
-        map[f.name] = arr;
+        map[f.name] = funct.load(5, f);
     });
+    a["Synchronous_Functions"] = map;
 }
 
 async function loadHashAsync() {
-    await loadHash().then(
-        async.forEach(async f => {
-            let arr = await funct.loadAsync(5, f);
-            map[f.name] = arr;
-        })
-    );
+    async.forEach(async f => {
+        amap[`${f.name}`] = await funct.loadAsync(5, f);
+    });
+    a["Async_Functions"] = amap;
 }
 
 loadHashAsync();
+loadHash();
 
-echo(map);
+echo("Running tests on all functions...");
+setTimeout(() => {
+    echo(a);
+}, 10000);
 
 function echo(string) { console.log(string); }
