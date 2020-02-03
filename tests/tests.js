@@ -24,25 +24,26 @@ sent.functArray.forEach( e => {
     else { sync.push(e); }
 });
 
-echo("Testing async functions: ");
-async.forEach(async f => {
-    let arr = await funct.loadAsync(5, f);
-    echo(arr[0]);
-    echo(arr[1]);
-    echo(arr[2]);
-    echo(arr[3]);
-    echo(arr[4]);
-    echo("");
-});
-echo("Testing sync functions: ");
-sync.forEach(f => {
-    let arr = funct.load(5, f);
-    echo(arr[0]);
-    echo(arr[1]);
-    echo(arr[2]);
-    echo(arr[3]);
-    echo(arr[4]);
-    echo("");
-})
+let map = {};
+
+async function loadHash() {
+    sync.forEach(f => {
+        let arr = funct.load(5, f);
+        map[f.name] = arr;
+    });
+}
+
+async function loadHashAsync() {
+    await loadHash().then(
+        async.forEach(async f => {
+            let arr = await funct.loadAsync(5, f);
+            map[f.name] = arr;
+        })
+    );
+}
+
+loadHashAsync();
+
+echo(map);
 
 function echo(string) { console.log(string); }
