@@ -3,7 +3,7 @@
 
 <div align="center">
   <a href="https://twitter.com/mandofortheboys">
-    <img src="https://cdn.vox-cdn.com/thumbor/fJHHpBDKPvx8dvoXHxhYa6nxBOQ=/71x0:769x465/1200x800/filters:focal(71x0:769x465)/cdn.vox-cdn.com/assets/1167000/Screen_Shot_2012-06-06_at_12.17.44_PM.png" alt="Join the Nonsense" />
+    <img src="https://img.shields.io/twitter/url?style=social" alt="Join the Nonsense" />
   </a>
 </div>
 
