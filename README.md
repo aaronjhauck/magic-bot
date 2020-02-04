@@ -1,8 +1,7 @@
 # magic-bot
-### _a bot for our friends. really no use to anyone outside our playgroup_
+### _a bot for our friends. really no use to anyone outside our playgroup._
 
-![](https://img.shields.io/twitter/url?label=JOIN%20THE%20NONSENSE&style=social&url=https%3A%2F%2Ftwitter.com%2Fmandofortheboys)
-
+![Twitter URL](https://img.shields.io/twitter/url?label=VIEW%20THE%20NONSENSE&style=social&url=https%3A%2F%2Ftwitter.com%2Fmandofortheboys)
 
 ![](https://media.wizards.com/2019/images/daily/cardart_original_Sol-Ring-2.jpg)
 
@@ -26,4 +25,4 @@
 * `$ docker-compose up -d`
 
 
-_*magic-bot uses nodemon -- any hot-fixes made locally will be immediately deployed to the container*_
+_magic-bot uses nodemon -- any hot-fixes made locally will be immediately deployed to the container_
