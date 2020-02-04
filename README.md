@@ -1,11 +1,6 @@
 # magic-bot
 ### _a bot for our friends. really no use to anyone outside our playgroup._
-
-<div align="center">
-  <a href="https://twitter.com/mandofortheboys">
-    <img src="https://img.shields.io/twitter/url?style=social" alt="Join the Nonsense" />
-  </a>
-</div>
+![](https://img.shields.io/twitter/url?label=Join%20the%20Nonsense&style=social&url=https%3A%2F%2Ftwitter.com%2Fmandofortheboys)
 
 ![](https://media.wizards.com/2019/images/daily/cardart_original_Sol-Ring-2.jpg)
 
