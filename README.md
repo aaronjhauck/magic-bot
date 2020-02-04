@@ -1,4 +1,5 @@
 # magic-bot
+### _a bot for our friends. really no use to anyone outside our playgroup_
 
 ![](https://img.shields.io/twitter/url?label=JOIN%20THE%20NONSENSE&style=social&url=https%3A%2F%2Ftwitter.com%2Fmandofortheboys)
 
