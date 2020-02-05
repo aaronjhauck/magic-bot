@@ -19,7 +19,6 @@
 #### Test
 
 * `$ npm test`
-* `$ ./tests/tests.js`
 
 #### Run
 * `$ docker-compose build`
