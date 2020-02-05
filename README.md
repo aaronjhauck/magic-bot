@@ -1,6 +1,5 @@
 # magic-bot
 ### _a bot for our friends. really no use to anyone outside our playgroup._
-![](https://img.shields.io/twitter/follow/mandofortheboys?color=orange&label=Follow%20the%20Boys)
 [![follow the boys](https://img.shields.io/badge/Follow%20the-Boys-blue)](https://twitter.com/mandofortheboys) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 
