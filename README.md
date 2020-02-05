@@ -12,7 +12,8 @@
 
 #### Configure:
 
-* install docker || install docker-compose
+* install docker
+* install docker-compose
 
 #### Test:
 
@@ -20,17 +21,22 @@
 |---------------------|:-------------:|
 | `$ npm run local`   |  `$ npm test` |
 
-#### Build
+#### Build:
 
-|   docker-compose (reccomended) |            docker              |
+|        docker-compose **       |            docker              |
 |--------------------------------|:------------------------------:|
 | `$ docker-compose build`       |  `$ docker build -t magic-bot` |
 
-#### Run
+#### Run:
 
-|   docker-compose (reccomended) |            docker              |
+|        docker-compose **       |            docker              |
 |--------------------------------|:------------------------------:|
 | `$ docker-compose up -d`       |  `$ docker run -d magic-bot`   |
 
+** reccomended
+
+> IMPORTANT: 
+> 
 > magic-bot utilizes nodemon to deploy hot-fixes if using docker-compose
-> run docker-compose up --build -d to push local changes to the container
+>
+> run `$ docker-compose up --build -d` to push local changes to the container
