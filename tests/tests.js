@@ -1,5 +1,5 @@
 const sent = require("../lib/sentences");
-const funct = require("../lib/functions");
+const expect = require('expect');
 
 let sync = [];
 let async = [];
@@ -10,29 +10,10 @@ sent.functArray.forEach( e => {
     else { sync.push(e); }
 });
 
-let map  = {};
-let amap = {};
-let a = {};
-function loadHash() {
-    sync.forEach(f => {
-        map[f.name] = funct.load(5, f);
-    });
-    a["Synchronous_Functions"] = map;
-}
+async.forEach(e => {
+    it(`Testing ${e.name}`, async () => {
+        let result = await e();
 
-async function loadHashAsync() {
-    async.forEach(async f => {
-        amap[`${f.name}`] = await funct.loadAsync(5, f);
-    });
-    a["Async_Functions"] = amap;
-}
-
-loadHashAsync();
-loadHash();
-
-echo("Running tests on all functions...");
-setTimeout(() => {
-    echo(a);
-}, 10000);
-
-function echo(string) { console.log(string); }
+        expect(result).toReturn();
+    })
+})
