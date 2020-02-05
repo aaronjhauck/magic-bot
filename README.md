@@ -5,25 +5,34 @@
 
 ![](https://media.wizards.com/2019/images/daily/cardart_original_Sol-Ring-2.jpg)
 
-#### Install
+#### Install:
 
 * `$ git clone https://github.com/aaronjhauck/magic-bot.git`
 * `$ npm install`
 
-#### Configure
+#### Configure:
 
-* install docker
-* install docker-compose
+* install docker || install docker-compose
 
-#### Test
+#### Test:
 
 | Generate Sentence   |   Full Suite  |
 |---------------------|:-------------:|
-| `$ npm run local`   |  `$ npm tests`|
+| `$ npm run local`   |  `$ npm test` |
+
+#### Build
+* `$ docker-compose build`
+
+|   docker-compose (reccomended) |            docker              |
+|--------------------------------|:------------------------------:|
+| `$ docker-compose build`       |  `$ docker build -t magic-bot` |
 
 #### Run
-* `$ docker-compose build`
 * `$ docker-compose up -d`
 
+|   docker-compose (reccomended) |            docker              |
+|--------------------------------|:------------------------------:|
+| `$ docker-compose up -d`       |  `$ docker run -d magic-bot`   |
 
-_magic-bot uses nodemon -- any hot-fixes made locally will be immediately deployed to the container_
+> magic-bot utilizes nodemon to deploy hot-fixes if using docker-compose
+> run docker-compose up --build -d to push local changes to the container
