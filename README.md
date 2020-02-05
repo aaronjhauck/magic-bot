@@ -21,14 +21,12 @@
 | `$ npm run local`   |  `$ npm test` |
 
 #### Build
-* `$ docker-compose build`
 
 |   docker-compose (reccomended) |            docker              |
 |--------------------------------|:------------------------------:|
 | `$ docker-compose build`       |  `$ docker build -t magic-bot` |
 
 #### Run
-* `$ docker-compose up -d`
 
 |   docker-compose (reccomended) |            docker              |
 |--------------------------------|:------------------------------:|
