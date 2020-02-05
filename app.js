@@ -7,7 +7,7 @@ const twit    = require("twit")
 
 function tweet(sentence) {
 	Twitter.post('statuses/update', { status: sentence }, function(err, data, response) {
-		log.loggr(data);
+		console.log(data);
 	});
 }
 
