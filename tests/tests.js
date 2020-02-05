@@ -1,6 +1,10 @@
 const sent = require("../lib/sentences");
-const funct = require("../lib/functions");
+const expect = require('expect');
 
+/**
+ * Build indices of async
+ * and non-async functions
+ */
 let sync = [];
 let async = [];
 sent.functArray.forEach( e => {
@@ -10,29 +14,38 @@ sent.functArray.forEach( e => {
     else { sync.push(e); }
 });
 
-let map  = {};
-let amap = {};
-let a = {};
-function loadHash() {
-    sync.forEach(f => {
-        map[f.name] = funct.load(5, f);
-    });
-    a["Synchronous_Functions"] = map;
-}
+/**
+ * -- Tests for async functions --
+ * Test A: The function returns something
+ * Test B: The result contains no undefined variables
+ */
+async.forEach(e => {
 
-async function loadHashAsync() {
-    async.forEach(async f => {
-        amap[`${f.name}`] = await funct.loadAsync(5, f);
-    });
-    a["Async_Functions"] = amap;
-}
+    it(`Testing ${e.name} returns something`, async () => {
+        let result = await e();
+        expect(result).toReturn;
+    })
 
-loadHashAsync();
-loadHash();
+    it(`Testing ${e.name} contains no undefined values`, async () => {
+        let result = await e();
+        expect(result).not.toMatch(/undefined/);
+    })
+});
 
-echo("Running tests on all functions...");
-setTimeout(() => {
-    echo(a);
-}, 10000);
+/**
+ * -- Tests for non-async functions --
+ * Test A: The function returns something
+ * Test B: The result contains no undefined variables
+ */
+sync.forEach(e => {
 
-function echo(string) { console.log(string); }
+    it(`Testing ${e.name} returns something`, () => {
+        let result = e();
+        expect(result).toReturn;
+    })
+
+    it(`Testing ${e.name} contains no undefined values`, () => {
+        let result = e();
+        expect(result).not.toMatch(/undefined/);
+    })
+})
