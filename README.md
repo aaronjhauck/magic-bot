@@ -17,7 +17,9 @@
 
 #### Test
 
-* `$ npm test`
+| Generate Sentence   |   Full Suite  |
+|---------------------|:-------------:|
+| `$ npm run local`   |  `$ npm tests`|
 
 #### Run
 * `$ docker-compose build`
