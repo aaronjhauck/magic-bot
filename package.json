@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "./node_modules/.bin/mocha tests/tests.js"
+    "test": "./node_modules/.bin/mocha tests/tests.js",
+    "local": "node tests/local.js"
   },
   "author": "Aaron Hauck",
   "repository": {

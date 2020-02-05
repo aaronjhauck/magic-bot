@@ -1,7 +1,11 @@
 const sent = require("../lib/sentences");
 const log  = require("../lib/helpers");
 
-function MockTweet(str) { console.log(str); }
+function MockTweet(str) { 
+    echo("[-- DEBUG --------]");
+    echo(`[-- WOULD TWEET --] ${str}`);
+    echo("[-- DEBUG --------]");
+}
 
 async function TestIt() {
     let sentence = await sent.getSentence();
@@ -19,8 +23,10 @@ async function TestIt() {
     }
 
     setTimeout(() => {
-      log.loggr("Testing time...");
+      log.loggr("Testing time actually changes...");
     }, 3000);
 }
+
+function echo(str) { console.log(str); }
 
 TestIt();
