@@ -1,5 +1,7 @@
 const sent = require("../lib/sentences");
-const log  = require("../lib/helpers");
+const Log  = require("../lib/log").Log;
+
+let log = new Log();
 
 function MockTweet(str) { 
     echo("[-- DEBUG --------]");
@@ -10,21 +12,22 @@ function MockTweet(str) {
 async function TestIt() {
     let sentence = await sent.getSentence();
 
-    log.loggr("Begining tweet function...");
-    log.loggr(`Sentence: ${sentence}.`);
+    log.begin("Begining tweet function...");
+    log.print(`Sentence: ${sentence}`);
 
     try {
         MockTweet(sentence);
-        log.loggr("Tweeted successfully.");
+        log.print("Tweeted successfully.");
     }
     catch (err) {
-        log.loggr("Unable to send tweet.", true);
-        log.loggr(err, true);
+        log.error("Unable to send tweet.");
+        log.error(err);
     }
 
     setTimeout(() => {
-      log.loggr("Testing time actually changes...");
+      log.print("Testing time actually changes...");
     }, 3000);
+    log.end();
 }
 
 function echo(str) { console.log(str); }
