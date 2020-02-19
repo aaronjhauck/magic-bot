@@ -3,7 +3,7 @@ const twit    = require("twit")
     , Twitter = new twit(keys)
     , sched   = require("node-schedule")
     , sent    = require("./lib/sentences")
-    , Log     = require("./lib/log").Log;
+    , Log     = require("./lib/log");
 
 let log = new Log();
 

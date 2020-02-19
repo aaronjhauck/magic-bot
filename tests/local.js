@@ -1,5 +1,5 @@
 const sent = require("../lib/sentences");
-const Log  = require("../lib/log").Log;
+const Log  = require("../lib/log");
 
 let log = new Log();
 
