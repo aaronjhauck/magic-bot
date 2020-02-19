@@ -1,5 +1,5 @@
 const twit    = require("twit")
-    , keys    = require("./resource/keys")
+    , keys    = require("./resources/keys")
     , Twitter = new twit(keys)
     , sched   = require("node-schedule")
     , sent    = require("./lib/sentences")

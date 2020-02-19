@@ -1,4 +1,4 @@
-const sent = require("../lib/sentences");
+const sent   = require("../lib/sentences");
 const expect = require('expect');
 
 /**
