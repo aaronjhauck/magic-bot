@@ -23,11 +23,6 @@ async function TestIt() {
         log.error("Unable to send tweet.");
         log.error(err);
     }
-
-    setTimeout(() => {
-      log.print("Testing time actually changes...");
-    }, 3000);
-    log.end();
 }
 
 function echo(str) { console.log(str); }
