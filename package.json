@@ -18,11 +18,11 @@
     "node-blutils": "^1.0.1",
     "node-fetch": "^2.6.0",
     "node-schedule": "^1.3.2",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.3",
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "expect": "^25.1.0",
-    "mocha": "^7.0.1"
+    "expect": "^25.5.0",
+    "mocha": "^7.1.2"
   }
 }
