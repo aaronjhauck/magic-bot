@@ -13,7 +13,7 @@ function tweet(sentence) {
 	});
 }
 
-var job = sched.scheduleJob('0 */10 * * *', async function () {
+var job = sched.scheduleJob('0 13 * * 2,6', async function () {
     let sentence = await sent.getSentence();
 
     log.begin("Begining tweet function...");
