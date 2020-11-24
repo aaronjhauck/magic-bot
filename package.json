@@ -1,28 +1,23 @@
 {
-  "name": "magicbot",
-  "version": "1.0.0",
+  "name": "magic-bot",
+  "version": "1.0.1",
   "description": "A stupid magic bot for me and my friends",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "./node_modules/.bin/mocha tests/tests.js",
-    "local": "node tests/local.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Aaron Hauck",
+  "author": "aaronjhauck",
   "repository": {
     "type": "git",
     "url": "https://github.com/aaronjhauck/magic-bot"
   },
   "license": "ISC",
   "dependencies": {
-    "node-blutils": "^1.0.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "node-schedule": "^1.3.2",
-    "nodemon": "^2.0.3",
+    "nodemon": "^2.0.6",
+    "npm": "^6.14.9",
     "twit": "^2.2.11"
-  },
-  "devDependencies": {
-    "expect": "^25.5.0",
-    "mocha": "^7.1.2"
   }
 }

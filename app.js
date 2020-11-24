@@ -1,32 +1,30 @@
 const twit    = require("twit")
-    , keys    = require("./resources/keys")
-    , Twitter = new twit(keys)
+    , keys    = require("./src/keys")
     , sched   = require("node-schedule")
-    , sent    = require("./lib/sentences")
-    , Log     = require("./lib/log");
+    , sent    = require("./src/sentences")
+    , utils   = require("./src/utils")
+    , Twitter = new twit(keys);
 
-let log = new Log();
-
-function tweet(sentence) {
-	Twitter.post('statuses/update', { status: sentence }, function(err, data, response) {
+const tweet = (sentence) => {
+    Twitter.post('statuses/update', { status: sentence }, function(err, data, response) {
 		console.log(data);
 	});
 }
 
-var job = sched.scheduleJob('0 13 * * 2,6', async function () {
+let job = sched.scheduleJob('0 13 * * 2,6', async function () {
     let sentence = await sent.getSentence();
 
-    log.begin("Begining tweet function...");
-    log.print(`Sentence: ${sentence}.`);
-    log.print("Attepting to tweet...");
+    utils.print("Begining tweet function...");
+    utils.print(`Sentence: ${sentence}.`);
+    utils.print("Attepting to tweet...");
 
     try {
         tweet(sentence);
-        log.print("Tweeted successfully!")
+        utils.print("Tweeted successfully!")
     }
     catch (err) {
-        log.error("Unable to send tweet.");
-        log.error(err);
+        utils.err("Unable to send tweet.");
+        utils.err(err);
     }
-    log.end();
 });
+

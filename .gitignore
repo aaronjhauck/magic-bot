@@ -1,3 +1,3 @@
 node_modules
 .vs/*
-resources/keys.js
+src/keys.js
