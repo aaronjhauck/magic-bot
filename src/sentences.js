@@ -340,6 +340,79 @@ const n1 = () => {
 
     return `Actually ${card} is ${reaction} here.`;
 }
+
+const o1 = () => {
+    let player     = helper.getPlayer();
+    let saltyCard  = helper.getSaltyCard();
+
+    return `The threat has been identified - it's ${player}'s ${saltyCard}.`
+}
+
+const p1 = () => {
+    let player      = helper.getPlayer();
+    let topCreature = helper.getTopCreature();
+    let topSorcery  = helper.getTopSorcery();
+    let saltyCard   = helper.getSaltyCard();
+
+    return `For ${player}, 8 life is chump change when Sylvan offers ${topCreature}, ${topSorcery}, and ${saltyCard}.`;
+}
+
+const q1 = () => {
+    let player     = helper.getPlayer();
+    let topInstant = helper.getTopInstant();
+
+    return `Tanking on a pre-combat ${topInstant}, ${player} is finally starting to get on everyone's nerves.`;
+}
+
+const r1 = () => {
+    let player  = helper.getPlayer();
+    let topCard = helper.getTopCard();
+
+    return `The Ashiok downtick is particularly brutal for ${player} as the only copy of ${topCard} gets sent to the the shadow realm.`;
+}
+
+const s1 = () => {
+    let player = helper.getPlayer();
+
+    return `"Well, I'm out of win cons" - ${player}.`;
+}
+
+const t1 = () => {
+    let player  = helper.getPlayer();
+    let phase   = helper.getInstantPhase();
+    let sorcery = helper.getTopSorcery();
+
+    return `Little tef finally let ${player} achieve the dream of a ${phase} ${sorcery}. Absolutley no one is impressed.`;
+}
+
+const u1 = () => {
+    let player  = helper.getPlayer();
+    let topCard = helper.getTopCard();
+
+    return `${player} was always dead to a top deck ${topCard}.`;
+}
+
+const v1 = () => {
+    let player       = helper.getPlayer();
+    let topSaltyCard = helper.getSaltyCard();
+
+    return `${player} is turbo-mulling to a ${topSaltyCard}.`;
+}
+
+const w1 = () => {
+    let player      = helper.getPlayer();
+    let topCreature = helper.getTopCreature();
+
+    return `"Hey you bet. ${topCreature}. You absolutely bet, pal" - ${player}.`;
+}
+
+const x1 = () => {
+    let player       = helper.getPlayer();
+    let topSaltyCard = helper.getSaltyCard();
+
+    return `After the game, ${player} entertained the playgroup with stories of past tourneys and showed off a binder page full of mint ${topSaltyCard} proxies.`;
+}
+
 //#region Sentence functions
 
 //#region Sentence generator
@@ -347,7 +420,8 @@ let functArray = [
     a, b, c, d, e, f, g, h, i, j, k, l, m, 
     n, o, p, q, r, s, t, u, v, w, x, y, z,
     aa, a1, b1, c1, d1, e1, f1, g1, h1, i1,
-    j1, k1, l1, m1, n1
+    j1, k1, l1, m1, n1, o1, p1, q1, r1, s1,
+    t1, u1, v1, w1, x1
 ];
 module.exports.getSentence = () => { return utils.shuffle(functArray)(); }
 //#endregion Sentence generator
