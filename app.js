@@ -11,7 +11,7 @@ const tweet = (sentence) => {
 	});
 }
 
-let job = sched.scheduleJob('0 13 * * 2,6', async function () {
+let job = sched.scheduleJob('0 13 * * 0,2,4,5', async function () {
     let sentence = await sent.getSentence();
 
     utils.print("Begining tweet function...");
@@ -27,4 +27,3 @@ let job = sched.scheduleJob('0 13 * * 2,6', async function () {
         utils.err(err);
     }
 });
-
