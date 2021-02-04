@@ -96,13 +96,10 @@ const k = () => {
 }
 
 const l = () => {
-    let player      = helper.getPlayer();
-    let saltyCard   = helper.getSaltyCard();
-    let enchantment = helper.getTopEnchantment();
+    let player = helper.getPlayer();
+    let lands  = helper.getLandArray(2);
 
-    let mins   = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-
-    return `It's a toss up between ${saltyCard} and ${enchantment}, so ${player} spends ${mins} minutes tutoring.`;
+    return `${player} is trying to pretend they had ${lands[0]} and ${lands[1]} untapped the whole time.`;
 }
 
 const m = async() => {
@@ -129,10 +126,8 @@ const o = () => {
 
 const p = () => {
     let player   = helper.getPlayer();
-    let card     = helper.getTopCard();
-    let creature = helper.getTopCreature();
 
-    return `${player}'s hands shook uncontrollably as he held his two of his combo pieces - ${card} and ${creature}.`;
+    return `"No, ${player} -- ETB and Cast are two different triggers."`;
 }
 
 const q = () => {
@@ -167,11 +162,10 @@ const t = () => {
 }
 
 const u = () => {
-    let players      = helper.getPlayerArray(2);
-    let enchantments = helper.getEnchantmentArray(2);
-    let creature     = helper.getTopCreature();
+    let players   = helper.getPlayerArray(2);
+    let saltyCard = helper.getSaltyCard();
 
-    return `${players[0]}'s board is ${enchantments[0]} and ${creature}. ${players[1]} is holding a copy of ${enchantments[1]}. We are at a standstill.`
+    return `${players[0]} is miles away from their ${saltyCard} while ${players[1]} has them in the strip mine lock.`;
 }
 
 const v = () => {
@@ -183,12 +177,9 @@ const v = () => {
 }
 
 const w = () => {
-    let instant   = helper.getTopInstant();
     let players  = helper.getPlayerArray(2);
-    let lands    = helper.getLandArray(2);
-    let creature = helper.getTopCreature();
 
-    return `${instant} is put on to the stack. ${players[0]} asks ${players[1]} if he has a response. ${players[1]}'s hand is ${lands[0]}, ${creature}, and ${lands[1]}.`;
+    return `"See for yourself, I'm done answering questions" exclaims ${players[0]} when ${players[1]} asks if he's got any flying blockers.`;
 }
 
 const x = async() => {
@@ -237,11 +228,10 @@ const a1 = () => {
 }
 
 const b1 = () => {
-    let players = helper.getPlayerArray(2);
-    let phase   = helper.getInstantPhase();
-    let land    = helper.getTopLands();
+    let player    = helper.getPlayer();
+    let saltyCard = helper.getSaltyCard();
 
-    return `${players[0]} decides ${players[1]}'s ${phase} is the optimal time to fetch up a ${land}.`;
+    return `${player}'s ordered their phases draw, untap, declare attackers, undeclare, redeclare, cast ${saltyCard}, missed upkeep trigger, discard, land for turn.`;
 }
 
 const c1 = () => {
