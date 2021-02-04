@@ -231,7 +231,7 @@ const b1 = () => {
     let player    = helper.getPlayer();
     let saltyCard = helper.getSaltyCard();
 
-    return `${player}'s ordered their phases draw, untap, declare attackers, undeclare, redeclare, cast ${saltyCard}, missed upkeep trigger, discard, land for turn.`;
+    return `${player}'s ordered his phases draw, untap, declare attackers, undeclare, redeclare, cast ${saltyCard}, missed upkeep trigger, discard, land for turn.`;
 }
 
 const c1 = () => {
@@ -407,11 +407,11 @@ const x1 = () => {
 
 //#region Sentence generator
 let functArray = [
-    a, b, c, d, e, f, g, h, i, j, k, l, m, 
-    n, o, p, q, r, s, t, u, v, w, x, y, z,
-    aa, a1, b1, c1, d1, e1, f1, g1, h1, i1,
-    j1, k1, l1, m1, n1, o1, p1, q1, r1, s1,
-    t1, u1, v1, w1, x1
+    a, c, d, e, g, i, j, l, m, 
+    n, p, q, s, u, v, w, x, z,
+    aa, a1, b1, c1, e1, f1, h1,
+    i1, l1, m1, n1, o1, p1, q1,
+    r1, s1, t1, u1, v1, x1
 ];
 module.exports.getSentence = () => { return utils.shuffle(functArray)(); }
 //#endregion Sentence generator
