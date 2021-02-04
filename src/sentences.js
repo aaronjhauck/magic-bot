@@ -165,7 +165,7 @@ const u = () => {
     let players   = helper.getPlayerArray(2);
     let saltyCard = helper.getSaltyCard();
 
-    return `${players[0]} is miles away from their ${saltyCard} while ${players[1]} has them in the strip mine lock.`;
+    return `${players[0]} is miles away from his ${saltyCard} while ${players[1]} has him in the strip mine lock.`;
 }
 
 const v = () => {
